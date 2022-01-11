@@ -1,5 +1,5 @@
-specVersion: 0.0.2
-description: Genesis Protocol subgraph
+specVersion: 0.0.1
+description: Genesis Protocol Subgraph
 repository: https://github.com/GenesisProtocol/subgraph
 schema:
   file: ./schema.graphql
