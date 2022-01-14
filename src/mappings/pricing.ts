@@ -3,14 +3,14 @@ import { Pair, Token, Bundle } from '../types/schema'
 import { BigDecimal, Address, BigInt } from '@graphprotocol/graph-ts/index'
 import { ZERO_BD, factoryContract, ADDRESS_ZERO, ONE_BD, UNTRACKED_PAIRS } from './helpers'
 
-const WETH_ADDRESS = '0x9c3C9283D3e44854697Cd22D3Faa240Cfb032889'
+const WETH_ADDRESS = '0x9c3c9283d3e44854697cd22d3faa240cfb032889'
 const DAI_WETH_PAIR = '0xaca2f72ee17ddd51755e13bab448810b37ff9f76'
 
 export function getEthPriceInUSD(): BigDecimal {
   let daiPair = Pair.load(DAI_WETH_PAIR) // dai is token0
 
   if (daiPair !== null) {
-    return daiPair.token0Price
+    return daiPair.token1Price
   } else {
     return ZERO_BD
   }
@@ -18,15 +18,17 @@ export function getEthPriceInUSD(): BigDecimal {
 
 // token where amounts should contribute to tracked volume and liquidity
 let WHITELIST: string[] = [
-  '0x9c3C9283D3e44854697Cd22D3Faa240Cfb032889', // WMATIC POLYGON MUMBAI
+  '0x9c3c9283d3e44854697cd22d3faa240cfb032889', // WMATIC POLYGON MUMBAI
   '0xc00f6b6414289283f9942a32eb0c6c15db63aeb8', // DAI POLYGON MUMBAI
+  '0x230e8b7232124436e9be24a8ea5ff1b2861dcfd1', // TK0
+  '0x62ca00b6e212413f62fcbdf649dce8c697d40930', // TK0
 ]
 
 // minimum liquidity required to count towards tracked volume for pairs with small # of Lps
-let MINIMUM_USD_THRESHOLD_NEW_PAIRS = BigDecimal.fromString('400000')
+let MINIMUM_USD_THRESHOLD_NEW_PAIRS = BigDecimal.fromString('1')
 
 // minimum liquidity for price to get tracked
-let MINIMUM_LIQUIDITY_THRESHOLD_ETH = BigDecimal.fromString('0')
+let MINIMUM_LIQUIDITY_THRESHOLD_ETH = BigDecimal.fromString('2')
 
 /**
  * Search through graph to find derived Eth per token.
