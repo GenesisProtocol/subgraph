@@ -1,4 +1,4 @@
-specVersion: 0.0.1
+specVersion: 0.0.2
 description: Genesis Protocol Subgraph
 repository: https://github.com/GenesisProtocol/subgraph
 schema:
@@ -8,9 +8,9 @@ dataSources:
     name: Factory
     network: mumbai
     source:
-      address: '0x373Df4Ea54035326A47Bb4A6098EDf683EBa1804'
+      address: '0xa65B031AF303f5054E6fF46Ae1a927aa3D36026F'
       abi: Factory
-      startBlock: 10000834
+      startBlock: 23546288
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.3
@@ -34,7 +34,7 @@ dataSources:
 templates:
   - kind: ethereum/contract
     name: Pair
-    network: mainnet
+    network: mumbai
     source:
       abi: Pair
     mapping:
