@@ -1,10 +1,12 @@
 /* eslint-disable prefer-const */
 import { Pair, Token, Bundle } from '../types/schema'
-import { BigDecimal, Address, BigInt } from '@graphprotocol/graph-ts/index'
+import { BigDecimal, Address, BigInt } from '@graphprotocol/graph-ts'
 import { ZERO_BD, factoryContract, ADDRESS_ZERO, ONE_BD, UNTRACKED_PAIRS } from './helpers'
+import * as addresses from '@genesisprotocol/helpers/data/addresses.json'
 
-const WETH_ADDRESS = '0x9c3c9283d3e44854697cd22d3faa240cfb032889'
-const DAI_WETH_PAIR = '0xaca2f72ee17ddd51755e13bab448810b37ff9f76'
+const CHAIN = 80001
+const WETH_ADDRESS = addresses[CHAIN].WRAPPED_AVAX
+const DAI_WETH_PAIR = addresses[CHAIN].WRAPPED_AVAX_DAI_LP
 
 export function getEthPriceInUSD(): BigDecimal {
   let daiPair = Pair.load(DAI_WETH_PAIR) // dai is token0
@@ -18,10 +20,11 @@ export function getEthPriceInUSD(): BigDecimal {
 
 // token where amounts should contribute to tracked volume and liquidity
 let WHITELIST: string[] = [
-  '0x9c3c9283d3e44854697cd22d3faa240cfb032889', // WMATIC POLYGON MUMBAI
-  '0xc00f6b6414289283f9942a32eb0c6c15db63aeb8', // DAI POLYGON MUMBAI
-  '0x230e8b7232124436e9be24a8ea5ff1b2861dcfd1', // TK0
-  '0x62ca00b6e212413f62fcbdf649dce8c697d40930', // TK0
+  addresses[CHAIN].GENESIS_TOKEN,
+  addresses[CHAIN].DAI,
+  addresses[CHAIN].WRAPPED_BTC,
+  addresses[CHAIN].WRAPPED_AVAX,
+  addresses[CHAIN].WRAPPED_ETH,
 ]
 
 // minimum liquidity required to count towards tracked volume for pairs with small # of Lps
