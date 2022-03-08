@@ -2,9 +2,9 @@
 import { Pair, Token, Bundle } from '../types/schema'
 import { BigDecimal, Address, BigInt } from '@graphprotocol/graph-ts'
 import { ZERO_BD, factoryContract, ADDRESS_ZERO, ONE_BD, UNTRACKED_PAIRS } from './helpers'
-import * as addresses from '@genesisprotocol/helpers/data/addresses.json'
+import { chains, addresses }  from '@genesisprotocol/helpers'
 
-const CHAIN = 80001
+const CHAIN = chains.MUMBAI
 const WETH_ADDRESS = addresses[CHAIN].WRAPPED_AVAX
 const DAI_WETH_PAIR = addresses[CHAIN].WRAPPED_AVAX_DAI_LP
 

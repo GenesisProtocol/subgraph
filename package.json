@@ -23,6 +23,6 @@
     "typescript": "^3.5.2"
   },
   "dependencies": {
-    "@genesisprotocol/helpers": "0.0.11"
+    "@genesisprotocol/helpers": "0.1.1"
   }
 }

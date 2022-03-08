@@ -6,7 +6,7 @@ import { ERC20NameBytes } from '../types/Factory/ERC20NameBytes'
 import { User, Bundle, Token, LiquidityPosition, LiquidityPositionSnapshot, Pair } from '../types/schema'
 import { Factory as FactoryContract } from '../types/templates/Pair/Factory'
 import { TokenDefinition } from './tokenDefinition'
-import * as addresses from '@genesisprotocol/helpers/data/addresses.json'
+import { addresses }  from '@genesisprotocol/helpers'
 
 export const ADDRESS_ZERO = addresses[0].ZERO
 export const FACTORY_ADDRESS = addresses[80001].GENESIS_FACTORY
