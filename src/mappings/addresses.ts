@@ -37,7 +37,3 @@ export let genesisAddresses: GenesisAddresses = {
   WRAPPED_AVAX: '0x000066a60b104b2037554e07a406437fe4d8952a',
   WRAPPED_AVAX_DAI_LP: '0x05ca40b071ff0e34b642f3db35a47b101430e75e'
 }
-
-export function getGenesisAddress(): GenesisAddresses {
-  return genesisAddresses
-}
