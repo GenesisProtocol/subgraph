@@ -6,10 +6,10 @@ import { ERC20NameBytes } from '../types/Factory/ERC20NameBytes'
 import { User, Bundle, Token, LiquidityPosition, LiquidityPositionSnapshot, Pair } from '../types/schema'
 import { Factory as FactoryContract } from '../types/templates/Pair/Factory'
 import { TokenDefinition } from './tokenDefinition'
-import { addresses }  from '@genesisprotocol/helpers'
+import { genesisAddresses } from './addresses'
 
-export const ADDRESS_ZERO = addresses[0].ZERO
-export const FACTORY_ADDRESS = addresses[80001].GENESIS_FACTORY
+export let ADDRESS_ZERO = genesisAddresses.ADDRESS_ZERO
+export let FACTORY_ADDRESS = genesisAddresses.GENESIS_FACTORY
 
 export let ZERO_BI = BigInt.fromI32(0)
 export let ONE_BI = BigInt.fromI32(1)
@@ -48,7 +48,7 @@ export function convertTokenToDecimal(tokenAmount: BigInt, exchangeDecimals: Big
 export function equalToZero(value: BigDecimal): boolean {
   const formattedVal = parseFloat(value.toString())
   const zero = parseFloat(ZERO_BD.toString())
-  return zero == formattedVal;
+  return zero == formattedVal
 }
 
 export function isNullEthValue(value: string): boolean {
