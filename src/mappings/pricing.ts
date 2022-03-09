@@ -2,11 +2,10 @@
 import { Pair, Token, Bundle } from '../types/schema'
 import { BigDecimal, Address, BigInt } from '@graphprotocol/graph-ts'
 import { ZERO_BD, factoryContract, ADDRESS_ZERO, ONE_BD, UNTRACKED_PAIRS } from './helpers'
-import { chains, addresses }  from '@genesisprotocol/helpers'
+import { genesisAddresses } from './addresses'
 
-const CHAIN = chains.MUMBAI
-const WETH_ADDRESS = addresses[CHAIN].WRAPPED_AVAX
-const DAI_WETH_PAIR = addresses[CHAIN].WRAPPED_AVAX_DAI_LP
+let WETH_ADDRESS = genesisAddresses.WRAPPED_AVAX
+let DAI_WETH_PAIR = genesisAddresses.WRAPPED_AVAX_DAI_LP
 
 export function getEthPriceInUSD(): BigDecimal {
   let daiPair = Pair.load(DAI_WETH_PAIR) // dai is token0
@@ -20,11 +19,11 @@ export function getEthPriceInUSD(): BigDecimal {
 
 // token where amounts should contribute to tracked volume and liquidity
 let WHITELIST: string[] = [
-  addresses[CHAIN].GENESIS_TOKEN,
-  addresses[CHAIN].DAI,
-  addresses[CHAIN].WRAPPED_BTC,
-  addresses[CHAIN].WRAPPED_AVAX,
-  addresses[CHAIN].WRAPPED_ETH,
+  genesisAddresses.GENESIS_TOKEN,
+  genesisAddresses.DAI,
+  genesisAddresses.WRAPPED_BTC,
+  genesisAddresses.WRAPPED_AVAX,
+  genesisAddresses.WRAPPED_ETH,
 ]
 
 // minimum liquidity required to count towards tracked volume for pairs with small # of Lps
