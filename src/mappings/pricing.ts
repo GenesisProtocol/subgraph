@@ -5,7 +5,7 @@ import { ZERO_BD, factoryContract, ADDRESS_ZERO, ONE_BD, UNTRACKED_PAIRS } from 
 import { genesisAddresses } from './addresses'
 
 let WETH_ADDRESS = genesisAddresses.WRAPPED_AVAX
-let DAI_WETH_PAIR = genesisAddresses.WRAPPED_AVAX_DAI_LP
+let DAI_WETH_PAIR = genesisAddresses.WRAPPED_AVAX_DAI_PAIR
 
 export function getEthPriceInUSD(): BigDecimal {
   let daiPair = Pair.load(DAI_WETH_PAIR) // dai is token0
