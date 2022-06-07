@@ -1,4 +1,4 @@
-specVersion: 0.0.2
+specVersion: 0.0.4
 description: Genesis Protocol Subgraph
 repository: https://github.com/GenesisProtocol/subgraph
 schema:
@@ -6,14 +6,14 @@ schema:
 dataSources:
   - kind: ethereum/contract
     name: Factory
-    network: mumbai
+    network: fuji
     source:
-      address: '0x000094663dd0b569f2fb86142a02df632952298f'
+      address: '0x00001bdc09d281e0a4a3d44bb0be66dd7f0b9835'
       abi: Factory
-      startBlock: 25469537
+      startBlock: 10451581
     mapping:
       kind: ethereum/events
-      apiVersion: 0.0.3
+      apiVersion: 0.0.5
       language: wasm/assemblyscript
       file: ./src/mappings/factory.ts
       entities:
@@ -34,12 +34,12 @@ dataSources:
 templates:
   - kind: ethereum/contract
     name: Pair
-    network: mumbai
+    network: fuji
     source:
       abi: Pair
     mapping:
       kind: ethereum/events
-      apiVersion: 0.0.3
+      apiVersion: 0.0.5
       language: wasm/assemblyscript
       file: ./src/mappings/core.ts
       entities:
